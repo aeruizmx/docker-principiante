@@ -6,4 +6,10 @@ RUN sed -i 's|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|
 
 RUN yum install httpd -y
 
+# Se copia carpeta beryllium de raiz a directorio en contenedor centos
+# COPY beryllium /var/www/html
+
+# Permite agregar url hacia un archivo
+ADD startbootstrap-freelancer-master /var/www/html
+
 CMD apachectl -DFOREGROUND
