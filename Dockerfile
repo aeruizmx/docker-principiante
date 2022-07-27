@@ -1,46 +1,28 @@
-FROM centos
+FROM nginx
 
-# METADATA DE LA IMAGEN
-LABEL version=1.0
-LABEL description='This is an apache image'
-LABEL vendor=yo
+RUN useradd andres
 
-RUN cd /etc/yum.repos.d/
-RUN sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-*
-RUN sed -i 's|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g' /etc/yum.repos.d/CentOS-*
+COPY fruit /usr/share/nginx/html
 
-RUN yum install httpd -y
+ENV archivo docker
 
-# Poner el directorio de trabajo
-WORKDIR /var/www/html
-# Se copia carpeta beryllium de raiz a directorio en contenedor centos
-# COPY beryllium /var/www/html
+WORKDIR /usr/share/nginx/html
 
-# Permite agregar url hacia un archivo
-ADD startbootstrap-freelancer-master .
+RUN echo "$archivo" > /usr/share/nginx/html/env.html
 
-# Agregar variables de entorno
-ENV contenido 'ESTOY INSERTANDO EN ESTA PAGINA'
-RUN echo "$contenido" > /var/www/html/prueba.html
+EXPOSE 90
 
-# Exponer cualquier puerto para usarlo
-#EXPOSE 8080
+LABEL version=1
 
-RUN echo "$(whoami)" > /var/www/html/user1.html
+USER andres
 
-RUN useradd ricardo
-#RUN chown ricardo /var/www/html
-
-USER ricardo
-
-RUN echo "$(whoami)" > /tmp/user2.html
-
-#Para que quede guardado en ordenador
-#VOLUME /var/www/html
+RUN echo "Yo soy $(whoami)" > /tmp/yo.html
 
 USER root
 
-RUN cp /tmp/user2.html /var/www/html/user2.html
+RUN cp /tmp/yo.html /usr/share/nginx/html/docker.html
 
-COPY run.sh /run.sh
-CMD sh /run.sh
+VOLUME /var/log/nginx
+
+CMD nginx -g 'daemon off;'
+
