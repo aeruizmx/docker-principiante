@@ -1,0 +1,24 @@
+FROM nginx
+#POCAS CAPAS
+
+#ASI NO
+#RUN echo "1" >> /usr/share/nginx/html/test.txt
+#RUN echo "2" >> /usr/share/nginx/html/test.txt
+#RUN echo "3" >> /usr/share/nginx/html/test.txt
+
+#ASI UNA SOLA LINEA
+#OPCION 1
+#RUN echo "1" >> /usr/share/nginx/html/test.txt && echo "2" >> /usr/share/nginx/html/test.txt && echo "3" >> /usr/share/nginx/html/test.txt
+
+#OPCION 2
+#RUN \ 
+#echo "1" >> /usr/share/nginx/html/test.txt && \
+#echo "2" >> /usr/share/nginx/html/test.txt && \
+#echo "3" >> /usr/share/nginx/html/test.txt
+
+#OPCION 3
+ENV dir /usr/share/nginx/html/test.txt
+RUN \ 
+echo "4" >> $dir && \
+echo "5" >> $dir && \
+echo "6" >> $dir
