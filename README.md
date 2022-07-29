@@ -13,3 +13,8 @@ docker rmi apache-centos
 
 # CONSTRUIR CON OTRO DOCKEFILES
 docker build -t test -f my-dockerfile .
+
+# IMAGENES NO REFERENCIADAS
+docker-images % docker images -f dangling=true 
+# BUSCAR HUERFANAS Y BORRAR
+docker-images % docker images -f dangling=true -q | xargs docker Y EL PULL DE IMAGENES
