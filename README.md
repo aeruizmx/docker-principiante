@@ -18,3 +18,11 @@ docker build -t test -f my-dockerfile .
 docker-images % docker images -f dangling=true 
 # BUSCAR HUERFANAS Y BORRAR
 docker-images % docker images -f dangling=true -q | xargs docker Y EL PULL DE IMAGENES
+
+# Si notas un error (502) en la siguiente lección con nginx, por favor reemplaza esta parte del Dockerfile:
+
+#     --enablerepo=ius && yum clean all
+
+# por esto:
+
+#     --enablerepo=ius-archive && yum clean all
