@@ -27,6 +27,11 @@ docker-images % docker images -f dangling=true -q | xargs docker Y EL PULL DE IM
 
 #     --enablerepo=ius-archive && yum clean all
 
+# Listar un contenedor
+docker ps
+
+# Listar todos los contenedores
+docker ps -a
 
 
 
