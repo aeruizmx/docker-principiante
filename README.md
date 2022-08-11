@@ -58,3 +58,11 @@ docker exec -ti nuevo_nombre_jenkins bash
 jenkins@8a2ce3d42aef
 # Cambiar user y host en contenedor
 docker exec -u root -ti nuevo_nombre_jenkins bash
+
+# Mostrar los ids
+docker ps -q 
+# Eliminar contenedores
+docker ps -q | xargs docker rm -f
+
+# Agregar variable de entorno a la imagen desde comando
+docker run -dti -e "prueba1=4321"  --name enviroment2 enviroment
