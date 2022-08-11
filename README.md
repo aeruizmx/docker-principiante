@@ -1,4 +1,4 @@
-# docker-principiante
+# IMAGENES
 
 # CONSTRUIR
 docker build -t apache-centos:apache-cmd .
@@ -27,6 +27,20 @@ docker-images % docker images -f dangling=true -q | xargs docker Y EL PULL DE IM
 
 #     --enablerepo=ius-archive && yum clean all
 
+# Listar un contenedor
+docker ps
 
+# Listar todos los contenedores
+docker ps -a
 
+# Ayuda
+docker run --help|less
 
+# CONTENEDORES
+
+# Crear un contenedor la primera vez, -d segundo plano, 
+docker run -d jenkins/jenkins
+# Puerto computadora:puerto imagen 8080
+docker run -d -p 8080:8080 jenkins/jenkins
+# puerto 9090
+docker run -d -p 9090:8080 jenkins/jenkins
