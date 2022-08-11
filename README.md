@@ -44,3 +44,17 @@ docker run -d jenkins/jenkins
 docker run -d -p 8080:8080 jenkins/jenkins
 # puerto 9090
 docker run -d -p 9090:8080 jenkins/jenkins
+# Renombrar contenedor
+docker rename zealous_khorana nuevo_nombre_jenkins
+# Detener contenedor
+docker stop nuevo_nombre_jenkins
+# Iniciar contenedor
+docker start nuevo_nombre_jenkins
+# Reiniciar contenedor
+docker restart nuevo_nombre_jenkins
+# Ingresar a un contenedor, exec - ejecutar, -ti bash
+docker exec -ti nuevo_nombre_jenkins bash
+# User @ host
+jenkins@8a2ce3d42aef
+# Cambiar user y host en contenedor
+docker exec -u root -ti nuevo_nombre_jenkins bash
