@@ -103,3 +103,4 @@ docker images | grep jenkins
 docker run -d -p 7070:8080 --name jenkins jenkins/jenkins
 docker exec -ti jenkins bash
 cat /var/jenkins_home/secrets/initialAdminPassword 
+
