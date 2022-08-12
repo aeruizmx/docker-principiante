@@ -75,4 +75,8 @@ mysql -u docker_user -psecret --port 3333
 # Inspeccionar contenedor, sacar ip, etc
 docker inspect my-db1
 
-#
+# Cuanta RAM usa un contenedor
+docker stats my-mongo2
+
+# Ver logs de contenedor
+docker logs -f my-mongo2
