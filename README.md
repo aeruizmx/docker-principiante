@@ -66,3 +66,13 @@ docker ps -q | xargs docker rm -f
 
 # Agregar variable de entorno a la imagen desde comando
 docker run -dti -e "prueba1=4321"  --name enviroment2 enviroment
+
+# MySQL
+docker run -d --name my-db1 -e "MYSQL_ROOT_PASSWORD=123456" mysql:5.7
+mysql -u root -h 172.17.0.2 -p123456
+docker run -d -p 3333:3306 --name my-db2 -e "MYSQL_ROOT_PASSWORD=123456" -e "MYSQL_DATABASE=docker_db" -e "MYSQL_USER=docker" -e "MYSQL_PASSWORD=secret" mysql:5.7
+mysql -u docker_user -psecret --port 3333
+# Inspeccionar contenedor, sacar ip, etc
+docker inspect my-db1
+
+#
