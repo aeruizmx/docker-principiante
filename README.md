@@ -90,3 +90,9 @@ docker logs -f my-mongo2
  1008  docker run -d -p 9999:80 --name apache httpd
  1009  docker run -d -p 9999:80 --name tomcat tomcat:9.0.8-jre8-alpine
  1010  docker run -d -p 7777:80 --name tomcat tomcat:9.0.8-jre8-alpine
+
+ # Postgres
+ docker run -d --name postgres -e "POSTGRES_PASSWORD=12345678" -e "POSTGRES_USER=docker" -e "POSTGRES_DB=docker
+_db" -p 5432:5432 postgres
+docker exec -ti postgres bash
+psql -d docker_db -U docker
