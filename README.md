@@ -80,3 +80,13 @@ docker stats my-mongo2
 
 # Ver logs de contenedor
 docker logs -f my-mongo2
+1003  docker run -d --name my-mongo -p 27017:27017
+ 1004  docker run -d --name my-mongo -p 27017:27017 mongo
+ 1005  docker run -d --name my-mongo2 -p 27018:27017 mongo
+ 1006  docker stats my-mongo2
+
+# Nginx Apache y Tomcat
+ 1007  docker run -d -p 8888:80 --name nginx  nginx
+ 1008  docker run -d -p 9999:80 --name apache httpd
+ 1009  docker run -d -p 9999:80 --name tomcat tomcat:9.0.8-jre8-alpine
+ 1010  docker run -d -p 7777:80 --name tomcat tomcat:9.0.8-jre8-alpine
