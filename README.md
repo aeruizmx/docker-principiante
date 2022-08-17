@@ -104,3 +104,6 @@ docker run -d -p 7070:8080 --name jenkins jenkins/jenkins
 docker exec -ti jenkins bash
 cat /var/jenkins_home/secrets/initialAdminPassword 
 
+# Recuerda: -p host:container
+
+Correcto! Para extraer el archivo, usa este formato: docker cp container:/path/del/archivo /path/de/tu/maquina. Para enviar un archivo, lo haces al contrario: docker cp /path/de/tu/maquina container:/path/container
