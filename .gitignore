@@ -5,3 +5,4 @@ run.sh
 ws.code-workspace
 docker.key
 docker.crt
+/volumenes/Clase57/opt/*
