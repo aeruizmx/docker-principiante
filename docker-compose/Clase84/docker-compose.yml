@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  web:
+    container_name: nginx1
+    ports:
+      - "8080:80"
+    volumes:
+      - "/Users/aruiz/Documents/Proyectos/docker-images/docker-compose/Clase84/html:/usr/share/nginx/html"
+    image: nginx
+
