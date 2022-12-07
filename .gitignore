@@ -7,3 +7,4 @@ docker.key
 docker.crt
 /volumenes/Clase57/opt/*
 docker-compose/Clase84/html/
+docker-compose/wordpress/
